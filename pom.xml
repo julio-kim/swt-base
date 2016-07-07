@@ -1,0 +1,143 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.pnoni</groupId>
+    <artifactId>swt-base</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>swt-base</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <swt.version>4.3</swt.version>
+        <swt.mainclass>com.pnoni.swtbase.Launcher</swt.mainclass>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>macos_64</id>
+            <properties>
+                <swt.artifact>org.eclipse.swt.cocoa.macosx.x86_64</swt.artifact>
+                <swt.osdepvmoption>-XstartOnFirstThread</swt.osdepvmoption>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>macos</id>
+            <properties>
+                <swt.artifact>org.eclipse.swt.cocoa.macosx</swt.artifact>
+                <swt.osdepvmoption>-XstartOnFirstThread</swt.osdepvmoption>
+            </properties>
+        </profile>
+        <profile>
+            <id>win32_64</id>
+            <properties>
+                <swt.artifact>org.eclipse.swt.win32.win32.x86_64</swt.artifact>
+                <swt.osdepvmoption></swt.osdepvmoption>
+            </properties>
+        </profile>
+        <profile>
+            <id>win32</id>
+            <properties>
+                <swt.artifact>org.eclipse.swt.win32.win32.x86</swt.artifact>
+                <swt.osdepvmoption></swt.osdepvmoption>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.swt</groupId>
+            <artifactId>${swt.artifact}</artifactId>
+            <version>${swt.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>${swt.mainclass}</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>${swt.mainclass}</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>${swt.osdepvmoption}</argument>
+                        <argument>-jar</argument>
+                        <argument>${project.build.directory}/${project.artifactId}-${project.version}-jar-with-dependencies.jar</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+
+        <!--
+        org.eclipse.swt.gtk.solaris.x86	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
+    org.eclipse.swt	org.eclipse.swt.gtk.solaris.sparc	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
+    org.eclipse.swt	org.eclipse.swt.cocoa.macosx.x86_64	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
+    org.eclipse.swt	org.eclipse.swt.cocoa.macosx	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
+    org.eclipse.swt	org.eclipse.swt.gtk.linux.s390x	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
+    org.eclipse.swt	org.eclipse.swt.gtk.linux.s390	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
+    org.eclipse.swt	org.eclipse.swt.gtk.linux.ppc64	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
+    org.eclipse.swt	org.eclipse.swt.gtk.linux.ppc	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
+    org.eclipse.swt	org.eclipse.swt.gtk.hpux.ia64	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
+    org.eclipse.swt	org.eclipse.swt.gtk.aix.ppc64	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
+    org.eclipse.swt	org.eclipse.swt.gtk.aix.ppc	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
+    org.eclipse.swt	org.eclipse.swt.gtk.linux.x86	4.3	25-Apr-2015	pom  jar  javadoc.jar  sources.jar
+    org.eclipse.swt	org.eclipse.swt.gtk.linux.x86_64	4.3	25-Apr-2015	pom  jar  javadoc.jar  sources.jar
+    org.eclipse.swt	org.eclipse.swt.win32.win32.x86_64	4.3	25-Apr-2015	pom  jar  javadoc.jar  sources.jar
+    org.eclipse.swt	org.eclipse.swt.win32.win32.x86
+        -->
