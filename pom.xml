@@ -62,20 +62,6 @@
                 <swt.osdepvmoption></swt.osdepvmoption>
             </properties>
         </profile>
-        <profile>
-            <id>linux64</id>
-            <properties>
-                <swt.artifact>org.eclipse.swt.gtk.linux.x86_64</swt.artifact>
-                <swt.osdepvmoption></swt.osdepvmoption>
-            </properties>
-        </profile>
-        <profile>
-            <id>linux</id>
-            <properties>
-                <swt.artifact>org.eclipse.swt.gtk.linux.x86</swt.artifact>
-                <swt.osdepvmoption></swt.osdepvmoption>
-            </properties>
-        </profile>
     </profiles>
 
 
