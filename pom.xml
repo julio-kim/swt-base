@@ -48,7 +48,37 @@
                 <swt.osdepvmoption></swt.osdepvmoption>
             </properties>
         </profile>
+        <profile>
+            <id>linux64</id>
+            <properties>
+                <swt.artifact>org.eclipse.swt.gtk.linux.x86_64</swt.artifact>
+                <swt.osdepvmoption></swt.osdepvmoption>
+            </properties>
+        </profile>
+        <profile>
+            <id>linux</id>
+            <properties>
+                <swt.artifact>org.eclipse.swt.gtk.linux.x86</swt.artifact>
+                <swt.osdepvmoption></swt.osdepvmoption>
+            </properties>
+        </profile>
+        <profile>
+            <id>linux64</id>
+            <properties>
+                <swt.artifact>org.eclipse.swt.gtk.linux.x86_64</swt.artifact>
+                <swt.osdepvmoption></swt.osdepvmoption>
+            </properties>
+        </profile>
+        <profile>
+            <id>linux</id>
+            <properties>
+                <swt.artifact>org.eclipse.swt.gtk.linux.x86</swt.artifact>
+                <swt.osdepvmoption></swt.osdepvmoption>
+            </properties>
+        </profile>
     </profiles>
+
+
 
     <dependencies>
         <dependency>
@@ -123,21 +153,3 @@
     </build>
 
 </project>
-
-        <!--
-        org.eclipse.swt.gtk.solaris.x86	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
-    org.eclipse.swt	org.eclipse.swt.gtk.solaris.sparc	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
-    org.eclipse.swt	org.eclipse.swt.cocoa.macosx.x86_64	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
-    org.eclipse.swt	org.eclipse.swt.cocoa.macosx	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
-    org.eclipse.swt	org.eclipse.swt.gtk.linux.s390x	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
-    org.eclipse.swt	org.eclipse.swt.gtk.linux.s390	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
-    org.eclipse.swt	org.eclipse.swt.gtk.linux.ppc64	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
-    org.eclipse.swt	org.eclipse.swt.gtk.linux.ppc	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
-    org.eclipse.swt	org.eclipse.swt.gtk.hpux.ia64	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
-    org.eclipse.swt	org.eclipse.swt.gtk.aix.ppc64	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
-    org.eclipse.swt	org.eclipse.swt.gtk.aix.ppc	4.3	26-Apr-2015	pom  jar  javadoc.jar  sources.jar
-    org.eclipse.swt	org.eclipse.swt.gtk.linux.x86	4.3	25-Apr-2015	pom  jar  javadoc.jar  sources.jar
-    org.eclipse.swt	org.eclipse.swt.gtk.linux.x86_64	4.3	25-Apr-2015	pom  jar  javadoc.jar  sources.jar
-    org.eclipse.swt	org.eclipse.swt.win32.win32.x86_64	4.3	25-Apr-2015	pom  jar  javadoc.jar  sources.jar
-    org.eclipse.swt	org.eclipse.swt.win32.win32.x86
-        -->
